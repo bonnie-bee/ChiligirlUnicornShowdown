@@ -1,9 +1,10 @@
 .startText{
     font-family: 'Smokum', cursive;
     text-align: center;
-    text-shadow: 0 0 2px black, 0 0 10px rgb(99, 50, 0), 0 0 25px rgb(242, 139, 36);
+    text-shadow: 0 0 2px black, 0 0 11px rgb(99, 50, 0), 0 0 11px rgb(193, 126, 9), 0 0 16px rgb(242, 139, 36), 0 0 19px rgba(255, 221, 0, 0.8);
     font-size: 6em;
     letter-spacing: 3px;
-    margin-top: 6%
+    margin-top: 6%;
+    color: rgba(0,0,0,0.3)
 
 }
