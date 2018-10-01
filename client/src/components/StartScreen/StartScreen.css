@@ -1,10 +1,65 @@
 .startText{
-    font-family: 'Smokum', cursive;
     text-align: center;
-    text-shadow: 0 0 2px black, 0 0 11px rgb(99, 50, 0), 0 0 11px rgb(193, 126, 9), 0 0 16px rgb(242, 139, 36), 0 0 19px rgba(255, 221, 0, 0.8);
-    font-size: 6em;
+    /* color: black; */
+    /* text-shadow: 0 0 2px black, 0 0 11px rgb(99, 50, 0), 0 0 11px rgb(193, 126, 9), 0 0 14px rgb(242, 139, 36), 0 0 19px rgba(255, 221, 0, 0.8); */
+    text-shadow: 0 0 2px black, 0 0 7px sienna, 0 0 11px sienna;  
+    font-size: 7em;
+    font-family: 'Fredericka the Great', cursive;
     letter-spacing: 3px;
-    margin-top: 6%;
-    color: rgba(0,0,0,0.3)
+    margin-top: 0%;
+    /* opacity: 0.8; */
+    color: black;
+} 
+
+a:hover{
+    text-decoration: none;
+}
+
+#u{
+    color:#af0000;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px #d80000;  
+
+}
+
+#n1{
+    color:#c16000;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px rgb(233, 74, 1);  
+
+}
+
+#i{
+    color:#c2c206;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px rgb(244, 248, 0);  
+
+}
+
+#c{
+    color:#00a800;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px rgb(45, 226, 0);  
+
+}
+
+#o{
+    color:#01c0c0;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px rgb(0, 230, 247);  
+
+}
+
+#r{
+    color:#0000a8;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px rgb(3, 58, 238);  
+
+}
+
+#n2{
+    color:#5d00a8;
+    /* color:black; */
+    text-shadow: 0 0 2px black, 0 0 7px #8b00ff;  
 
 }

@@ -1,10 +1,25 @@
 .BGBox{
     position: absolute;
-    height: 70%;
-    width: 70%;
-    left: 15%;
-    top: 15%;
-    background-image: url(../../images/tileable_wood_texture.png);
-    border: 50px gold solid;
-    border-image: url(../../images/rope-border.png) 50 ;
-}
+    height: 85%;
+    width: 85%;
+    left: 7.5%;
+    top: 7.5%;
+    /* background-image: url(../../images/board-brown-dried-172298.jpg); */
+    /* background-image: url(../../images/abstract-antique-backdrop-164005.jpg); */
+    /* background-image: url(../../images/abstract-antique-background-172277.jpg); */
+    background-image: url(../../images/board-brown-floor-459480.jpg);
+    /* background-image: url(../../images/tileable_wood_texture.png); */
+    /* background-image: url(../../images/tileable_wood_texture_@2X.png); */
+     background-repeat: no-repeat;
+    background-position: center;
+    background-size: 108% 112%;
+    border: 30px gold ridge;
+    /* border-image: url(../../images/ropeBorder2.png) 50 ; */
+    text-align: center;
+} 
+
+
+/* background-image: url(../../images/abstract-antique-background-172277.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 109% 113%; */
