@@ -1,5 +1,5 @@
 #chili1{
-    right: 4%;
+    right: 3%;
 }
 
 #chili2{
@@ -7,12 +7,12 @@
 }
 
 #chili3{
-    left: 4%;
+    left: 3%;
 }
 
 .answer3{
     position: relative;
-    width: 365px;
+    width: 350px;
     height: 365px;
     overflow: hidden;
     /* float: left; */
@@ -20,10 +20,10 @@
     border: black thick solid;
     /* box-shadow: 0 3px 6px #000, 0 3px 6px #000; */
 box-shadow: 0 0 3px black, 0 0 8px sienna;
-margin-top: 4%;
+margin-top: 2%;
 }
 
 #q3Text{
     font-size: 6em;
-    margin-top: 1.5%; 
+    margin-top: 5.6%; 
 }

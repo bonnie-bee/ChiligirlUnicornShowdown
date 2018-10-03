@@ -6,7 +6,7 @@
     font-size: 7em;
     font-family: 'Fredericka the Great', cursive;
     letter-spacing: 3px;
-    margin-top: 0%;
+    margin-top: 5%;
     /* opacity: 0.8; */
     color: black;
 } 
@@ -19,21 +19,18 @@ a:hover{
     color:#af0000;
     /* color:black; */
     text-shadow: 0 0 2px black, 0 0 7px #d80000;  
-
 }
 
 #n1{
     color:#c16000;
     /* color:black; */
     text-shadow: 0 0 2px black, 0 0 7px rgb(233, 74, 1);  
-
 }
 
 #i{
     color:#c2c206;
     /* color:black; */
     text-shadow: 0 0 2px black, 0 0 7px rgb(244, 248, 0);  
-
 }
 
 #c{

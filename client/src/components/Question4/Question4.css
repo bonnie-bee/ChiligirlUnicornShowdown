@@ -1,4 +1,5 @@
 .ansQ4{
+    position: relative;
     height: 240px;
     width: 350px;
     background-color: rgba(221, 221, 208, 0.3);
@@ -16,7 +17,7 @@
 
 #q4Text{
     font-size: 4.3em;
-    margin-top: 1%;
+    margin-top: 5%;
 }
 
 #ansSet4a{
@@ -24,7 +25,7 @@
 }
 
 #ansSet4b{
-    margin-top: 0%;
+    margin-top: -1.5%;
 }
 
 .leftSide{
@@ -33,6 +34,7 @@
 
 #q4a1{
     font-size: 6em;
+    left: 4%;
 }
 
 #q4a2{
@@ -40,14 +42,17 @@
 }
 #q4a3{
     font-size: 6em;
+    right: 4%;
 }
 #q4a4{
     font-size: 4em;
     padding-top: 4%;
+    left: 2%;
 }
 #q4a5{
     font-size: 5.5em;
     padding-top: 2%;
     margin-top: 1%;
+    right: 2%;
 
 }
