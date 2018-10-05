@@ -8,72 +8,30 @@ import Question3 from "../../components/Question3";
 import Question4 from "../../components/Question4";
 import Question5 from "../../components/Question5";
 import NoMatch from "../../components/NoMatch";
+import Chilicorn from "../../components/Chilicorn"
 
 
 
 class Home extends Component {
 
-    state = {
-        total: 0,
-        result: ""
-    };
-
-    answerPicked = (e) => {
-        var amounts = parseInt(e.target.getAttribute("value"), 10);
-        console.log(amounts);
-        let frogs = this.state.total;
-        let newTotal = amounts + frogs;
-        this.setState({ total: newTotal });
-        console.log(frogs);
+    questionValue = (e) => {
+        let amounts = parseInt(e.target.getAttribute("value"), 10);
+        this.props.data.editState(amounts);
+        console.log(amounts)
     }
 
-    finalTotal = (e) => {
-        var amounts = parseInt(e.target.getAttribute("value"), 10);
-        let frogs = this.state.total;
-        let newTotal = amounts + frogs;
-        let resultw = "";
-        if (newTotal > 0) {
-            resultw = "chiligirl";
-            this.setState({ total: newTotal, result: resultw });
-        }
-        if (newTotal < 0) {
-            resultw = "unicorn";
-            this.setState({ total: newTotal, result: resultw });
-        }
-        if (newTotal === 0) {
-            resultw = "chilicorn";
-            this.setState({ total: newTotal, result: resultw });
-        }
+    finalValue = (e) => {
+        let amounts = parseInt(e.target.getAttribute("value"), 10);
+        this.props.data.finalTotal(amounts);        
     }
+
+    
 
 
     render() {
         return (
             <Router>
-                <div>
-                    <h1>Hey</h1>
-                    <div className="BGBox">
-                        <Switch>
-                            <Route exact path="/" component={StartScreen} />
-                            <Route exact path="/question/1" render={(props) => (
-                                <Question1 {...props} data={{ color: "red", hello: this.answerPicked }} />
-                            )} />
-                            <Route exact path="/question/2" render={(props) => (
-                                <Question2 {...props} data={{ hello: this.answerPicked }} />
-                            )} />
-                            <Route exact path="/question/3" render={(props) => (
-                                <Question3 {...props} data={{ hello: this.answerPicked }} />
-                            )} />
-                            <Route exact path="/question/4" render={(props) => (
-                                <Question4 {...props} data={{ hello: this.answerPicked }} />
-                            )} />
-                            <Route exact path="/question/5" render={(props) => (
-                                <Question5 {...props} data={{ hello: this.finalTotal }} />
-                            )} />
-                            <Route component={NoMatch} />
-                        </Switch>
-                    </div>
-                </div>
+                
             </Router>
         )
     }
