@@ -14,7 +14,7 @@ class Question1 extends Component {
     render() {
         
         return (
-            <div>
+            <div className="BGBox">
                 <p className="question">Where would you rather live?</p>
                 <div id="ansSet1">
                     <Link to='/question/2'><img className="answer1" value="-1" id="ans1" onClick={this.props.questionValue} src={barn} alt="A ranch house" /></Link>

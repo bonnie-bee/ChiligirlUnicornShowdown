@@ -9,7 +9,7 @@ const Question3 = (props) => {
     // let thing1 = props.data.hello;
 
     return (
-        <div>
+        <div className="BGBox">
             <p className="question" id="q3Text">Which chili do you want?</p>
             <Link to='/question/4'><img className="answer3" value="0" id="chili1" src={chili1} onClick={props.questionValue} alt="A ranch house" /></Link>
             <Link to='/question/4'><img className="answer3" value="-1" id="chili2" src={chili2} onClick={props.questionValue} alt="A forest with light shining through the trees" /></Link>

@@ -6,7 +6,7 @@ const Question2 = (props) => {
     // let thing1= props.data.hello;
 
     return(
-    <div>
+    <div className="BGBox">
         <p className="question" id="q2Text">Beans in chili?</p>
         <div id="ansSet1">
             <Link to='/question/3'><p className="ansQ2" value="-2" onClick={props.questionValue} >Nay</p></Link>

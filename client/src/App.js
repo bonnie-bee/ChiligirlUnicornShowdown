@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Home from "./pages/Home";
-// import Chiligirl from "./pages/Chiligirl";
-// import Unicorn from "./pages/Unicorn";
 import Chilicorn from "./components/Chilicorn";
 import Chiligirl from "./components/Chiligirl";
 import Unicorn from "./components/Unicorn";
-// import Result from "./pages/Result";
 import StartScreen from "./components/StartScreen";
 import Question1 from "./components/Question1";
 import Question2 from "./components/Question2";
@@ -27,7 +23,8 @@ class App extends Component {
     }
 
     this.editState = this.editState.bind(this);
-    this.finalResult = this.finalResult.bind(this)
+    this.finalResult = this.finalResult.bind(this);
+    this.reset = this.reset.bind(this);
   };
 
 
@@ -35,60 +32,51 @@ class App extends Component {
     let stateTotal = this.state.total;
     let amounts = parseInt(e.target.getAttribute("value"), 10);
     let newTotal = amounts + stateTotal;
-    this.setState({ total: newTotal});
+    this.setState({ total: newTotal });
     return newTotal;
   }
 
-  finalResult(e){
-    let newTotal=this.editState(e);
+  finalResult(e) {
+    let newTotal = this.editState(e);
     console.log("new total: " + newTotal)
     let resultw = "";
     if (newTotal > 0) {
       resultw = "Chiligirl";
       this.setState({ total: newTotal, result: resultw });
-      console.log(this.state)
-      let hostName = window.location.hostname;
-      console.log(hostName)
-
-      window.location.assign("/result/Chilicorn")
+      window.location.assign("/result/Chiligirl")
     }
     if (newTotal < 0) {
       resultw = "Unicorn";
       this.setState({ total: newTotal, result: resultw });
-      console.log(this.state)
-      let hostName = window.location.hostname;
-      console.log(hostName)
-
-      window.location.assign("/result/Chilicorn")
+      window.location.assign("/result/Unicorn")
     }
     if (newTotal === 0) {
       resultw = "Chilicorn";
       this.setState({ total: newTotal, result: resultw });
-      console.log(this.state)
-      let hostName = window.location.hostname;
       window.location.assign("/result/Chilicorn")
-      console.log(hostName)
-
-
     }
   }
 
+  timer() {
+    setTimeout(function () {
+      window.location.assign("/");
+    }, 7000)
+  }
 
-// resultRoute(){
-//   let result = this.state.result;
-//   if (result==="chiligirl") return "/Chiligirl"
-//   if (result === "unicorn") return "/Unicorn"
-//   if (result === "chilicorn") return "/Chilicorn"
-// }
+  reset(){
+    let total = 0;
+    let result = "";
+    this.setState({ total: total, result: result})
+  }
 
   render() {
     console.log("result: " + this.state.total + ", " + this.state.result)
     return (
       <Router>
-        {/* <Switch> */}
-        {/* <div className="BGBox"> */}
         <Switch>
-          <Route exact path="/" component={StartScreen} />
+          <Route exact path="/" render={(props) => (
+            <StartScreen {...props} reset={this.reset} />
+          )} />
           <Route exact path="/question/1" render={(props) => (
             <Question1 {...props} questionValue={this.editState} />
           )} />
@@ -104,14 +92,18 @@ class App extends Component {
           <Route exact path="/question/5" render={(props) => (
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
-          <Route exact path="/result/chiligirl" component={Chiligirl} />
-          <Route exact path="/result/unicorn" component={Unicorn} />
-          <Route exact path="/result/chilicorn" component={Chilicorn} />
+          <Route exact path="/result/chiligirl" render={(props) => (
+            <Chiligirl {...props} timer={this.timer} />
+          )} />
+          <Route exact path="/result/unicorn" render={(props) => (
+            <Unicorn {...props} timer={this.timer} />
+          )} />
+          <Route exact path="/result/chilicorn" render={(props) => (
+            <Chilicorn {...props} timer={this.timer} />
+          )} />
           <Route component={NoMatch} />
 
         </Switch>
-        {/* </div> */}
-        {/* </Switch> */}
       </Router>
     )
   }

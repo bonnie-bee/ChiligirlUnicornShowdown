@@ -6,7 +6,7 @@ const Question4 = (props) => {
     // let thing1 = props.data.hello;
 
     return (
-        <div>
+        <div className="BGBox">
             <p className="question" id="q4Text">What's your role on the chili team?</p>
             <div id="ansSet4a">
                 <Link to='/question/5'><p className="ansQ4" value="2" onClick={props.questionValue} id="q4a1">Cook</p></Link>
