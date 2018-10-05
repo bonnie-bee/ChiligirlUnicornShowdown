@@ -47,22 +47,27 @@ class App extends Component {
       resultw = "Chiligirl";
       this.setState({ total: newTotal, result: resultw });
       console.log(this.state)
-      let hostName = window.location.hostName;
-      window.location.assign(hostName + "/result/Chilicorn")
+      let hostName = window.location.hostname;
+      console.log(hostName)
+
+      window.location.assign("/result/Chilicorn")
     }
     if (newTotal < 0) {
       resultw = "Unicorn";
       this.setState({ total: newTotal, result: resultw });
       console.log(this.state)
-      let hostName = window.location.hostName;
-      window.location.assign(hostName + "/result/Chilicorn")
+      let hostName = window.location.hostname;
+      console.log(hostName)
+
+      window.location.assign("/result/Chilicorn")
     }
     if (newTotal === 0) {
       resultw = "Chilicorn";
       this.setState({ total: newTotal, result: resultw });
       console.log(this.state)
-      let hostName = window.location.hostName;
-      window.location.assign(hostName + "/result/Chilicorn")
+      let hostName = window.location.hostname;
+      window.location.assign("/result/Chilicorn")
+      console.log(hostName)
 
 
     }
