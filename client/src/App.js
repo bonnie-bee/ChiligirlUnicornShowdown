@@ -24,7 +24,7 @@ class App extends Component {
 
     this.editState = this.editState.bind(this);
     this.finalResult = this.finalResult.bind(this);
-    this.reset = this.reset.bind(this);
+    // this.reset = this.reset.bind(this)
   };
 
 
@@ -60,14 +60,17 @@ class App extends Component {
   timer() {
     setTimeout(function () {
       window.location.assign("/");
+      let total = 0;
+    let result = "";
+    this.setState({ total: total, result: result})
     }, 7000)
   }
 
-  reset(){
-    let total = 0;
-    let result = "";
-    this.setState({ total: total, result: result})
-  }
+  // reset(){
+  //   let total = 0;
+  //   let result = "";
+  //   this.setState({ total: total, result: result})
+  // }
 
   render() {
     console.log("result: " + this.state.total + ", " + this.state.result)

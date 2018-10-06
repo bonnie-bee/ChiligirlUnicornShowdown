@@ -18,11 +18,11 @@ class Question1 extends Component {
                 <p className="question">Where would you rather live?</p>
                 <div id="ansSet1">
                     <Link to='/question/2'><img className="answer1" value="-1" id="ans1" onClick={this.props.questionValue} src={barn} alt="A ranch house" /></Link>
-                    <Link to='/question/2'><img className="answer1" value="2" id="ans2" onClick={this.props.questionValue} src={forest} alt="A forest with light shining through the trees" /></Link>
+                    <Link to='/question/2'><img className="answer1" value="-2" id="ans2" onClick={this.props.questionValue} src={forest} alt="A forest with light shining through the trees" /></Link>
                 </div>
                 <div id="ansSet2">
-                    <Link to='/question/2'><img className="answer1" value="1" id="ans3" onClick={this.props.questionValue} src={wagon} alt="A covered wagon" /></Link>
-                    <Link to='/question/2'><img className="answer1" value="-2" id="ans4" onClick={this.props.questionValue} src={ranch} alt="A barn" /></Link>
+                    <Link to='/question/2'><img className="answer1" value="2" id="ans3" onClick={this.props.questionValue} src={wagon} alt="A covered wagon" /></Link>
+                    <Link to='/question/2'><img className="answer1" value="1" id="ans4" onClick={this.props.questionValue} src={ranch} alt="A barn" /></Link>
                 </div>
             </div>
         )

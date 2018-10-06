@@ -4,8 +4,7 @@ import "./StartScreen.css";
 
 class StartScreen extends Component {
     render() {
-        this.props.reset
-        result(
+        return(
             <div className="BGBox">
                 <Link id="startBtn" to='/question/1'>
                     <div className="startBox">
