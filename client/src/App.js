@@ -9,7 +9,12 @@ import Question2 from "./components/Question2";
 import Question3 from "./components/Question3";
 import Question4 from "./components/Question4";
 import Question5 from "./components/Question5";
+import Result from "./pages/Result"
 import NoMatch from "./components/NoMatch";
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8081');
+// import { chiligirl } from './socketApi'
+
 
 
 class App extends Component {
@@ -24,9 +29,15 @@ class App extends Component {
 
     this.editState = this.editState.bind(this);
     this.finalResult = this.finalResult.bind(this);
-    // this.reset = this.reset.bind(this)
   };
 
+  chiligirl(){
+    socket.emit('chiligirl', 'chiligirl!');
+  };
+
+  unicorn(){
+    socket.emit('unicorn', 'unicorn!')
+  }
 
   editState(e) {
     let stateTotal = this.state.total;
@@ -96,13 +107,16 @@ class App extends Component {
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
           <Route exact path="/result/chiligirl" render={(props) => (
-            <Chiligirl {...props} timer={this.timer} />
+            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl}/>
           )} />
           <Route exact path="/result/unicorn" render={(props) => (
-            <Unicorn {...props} timer={this.timer} />
+            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn}/>
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
-            <Chilicorn {...props} timer={this.timer} />
+            <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} />
+          )} />
+          <Route exact path="/result" render={(props) => (
+            <Result {...props} />
           )} />
           <Route component={NoMatch} />
 
