@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route} from "react-router-dom";
 import "./Result.css";
-// import Chiligirl from "../../components/Chiligirl";
-// import Chilicorn from "../../components/Chilicorn";
-// import Unicorn from "../../components/Unicorn";
+import API from "../../utils/API";
 
 class Result extends Component {
+    loadResults = () => {
+        API.getResults()
+        .then(res => console.log(res))
+        .catch(err=>console.log(err))
+    }
     render() {
     console.log(this.props)
 

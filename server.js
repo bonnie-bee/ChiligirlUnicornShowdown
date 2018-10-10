@@ -3,9 +3,11 @@ const board = new five.Board({ port: "COM5" });
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const port = 8081;
 const app = express();
+const routes = require("./routes");
 const server = require('http').createServer(app);
 const io = require('socket.io')();
 
@@ -17,8 +19,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
-// Define API routes here
+// Add routes, both API and view
+app.use(routes);
 
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chiliresults");
 
 board.on('ready', function () {
   console.log('Arduino is ready.');
@@ -37,7 +42,7 @@ board.on('ready', function () {
 
     client.on('chiligirl', function (data) {
       console.log(data);
-      led.on();
+      led.blink(500);
       setTimeout(function () {
         led.off();
         console.log('timer')

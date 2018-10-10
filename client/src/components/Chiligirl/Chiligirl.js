@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import "./Chiligirl.css";
-// const five = require('johnny-five');
-// const board = new five.Board({ port: "COM5" });
+import API from "../../utils/API";
 
 class Chiligirl extends Component{
 
-    
-
-    // constructor(props) {
-        // super(props);
-        // chiligirl();
-    //   }
+    saveResult = () => {
+        API.saveResult({
+        type: "chiligirl",
+        amount: 1,
+        date: Date.now() 
+      })
+        .then(res => this.loadBooks())
+        .catch(err => console.log(err));
+    }
 
     render(){
        
         this.props.timer();
         this.props.chiligirl();
+        this.saveResult();
         return(
             <h1 className="resultHeader">I'M A CHILIGIRL</h1>
         )
