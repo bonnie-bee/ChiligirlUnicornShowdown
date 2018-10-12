@@ -44,7 +44,7 @@ board.on('ready', function () {
       console.log(data);
       led.blink(500);
       setTimeout(function () {
-        led.off();
+        led.stop().off();
         console.log('timer')
       }, 7000)
     });

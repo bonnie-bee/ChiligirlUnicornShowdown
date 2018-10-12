@@ -7,8 +7,8 @@ router.route("/")
   .post(resultController.create);
 
 // Matches with "/api/results/:id"
-router.route("/:id")
+router.route("/update")
   .get(resultController.findById)
-  .put(resultController.update)
+  .post(resultController.update)
 
 module.exports = router;

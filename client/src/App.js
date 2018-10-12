@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import moment from "moment";
+import API from "./utils/API";
 import Chilicorn from "./components/Chilicorn";
 import Chiligirl from "./components/Chiligirl";
 import Unicorn from "./components/Unicorn";
@@ -77,6 +79,27 @@ class App extends Component {
     }, 7000)
   }
 
+  newResults(result) {
+    let today = moment().format("MMM Do YY");
+    API.saveResult({
+      resultType: result,
+      amount: 0,
+      date: today 
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+  updateResult = (resultType, today) => {
+    API.updateResult({
+      resultType: resultType, 
+      date: today
+    })
+    .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+
   // reset(){
   //   let total = 0;
   //   let result = "";
@@ -89,7 +112,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" render={(props) => (
-            <StartScreen {...props} reset={this.reset} />
+            <StartScreen {...props} newResults={this.newResults} />
           )} />
           <Route exact path="/question/1" render={(props) => (
             <Question1 {...props} questionValue={this.editState} />
@@ -107,13 +130,13 @@ class App extends Component {
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
           <Route exact path="/result/chiligirl" render={(props) => (
-            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl}/>
+            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult}/>
           )} />
           <Route exact path="/result/unicorn" render={(props) => (
-            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn}/>
+            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult}/>
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
-            <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} />
+            <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result" render={(props) => (
             <Result {...props} />

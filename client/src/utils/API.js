@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/results");
   },
   // updates the result with the given id
-  updateResult: function(id) {
-    return axios.put("/api/results/" + id);
+  updateResult: function(updateData) {
+    return axios.post("/api/results/update", updateData);
   },
   // Saves result to the database
   saveResult: function(resultData) {

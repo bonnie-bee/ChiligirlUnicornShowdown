@@ -19,12 +19,12 @@ module.exports = {
     db.Result
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => console.log(err));
   },
   update: function(req, res) {
     db.Result
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ resultType: req.body.resultType, date: req.body.date }, {$inc: {amount: 1}}, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => console.log);
   }
 };

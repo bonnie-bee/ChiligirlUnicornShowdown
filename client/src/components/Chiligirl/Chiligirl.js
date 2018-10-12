@@ -7,7 +7,7 @@ class Chiligirl extends Component{
     saveResult = () => {
         API.saveResult({
         type: "chiligirl",
-        amount: 1,
+        amount: 1, 
         date: Date.now() 
       })
         .then(res => this.loadBooks())
@@ -16,11 +16,13 @@ class Chiligirl extends Component{
 
     render(){
        
-        this.props.timer();
+        // this.props.timer(); 
         this.props.chiligirl();
         this.saveResult();
         return(
-            <h1 className="resultHeader">I'M A CHILIGIRL</h1>
+            <div id="girlBGDiv">
+            <h1 id="girlHeader"className="resultHeader">I'M A CHILIGIRL</h1>
+            </div>
         )
     }
 } 
