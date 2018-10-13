@@ -8,6 +8,7 @@ const resultSchema = new Schema({
   date: { type: String, required: true, unique: true}
 });
 
+
 const Result = mongoose.model("Result", resultSchema);
 
 module.exports = Result;

@@ -25,11 +25,13 @@ class App extends Component {
 
     this.state = {
       total: 0,
-      result: ""
+      result: "",
+      currentDay: []
     }
 
     this.editState = this.editState.bind(this);
     this.finalResult = this.finalResult.bind(this);
+    this.getResults = this.getResults.bind(this)
   };
 
   // chiligirl(){
@@ -80,8 +82,13 @@ class App extends Component {
 
   newResults() {
     let today = moment().format("MMM Do YY");
+    // API.getResults()
+    // .then(res=> {
+    //   console.log(res.data)
+    // })
+    // .catch(err => console.log(err))
     API.saveResult({
-      resultType: [{ name: "chiligirl", amount: 0 }, { name: "unicorn", amount: 0 }, { name: "chilicorn", amount: 0 }],
+      resultType: [{ id:1, name: "chiligirl", amount: 0 }, { id:2, name: "unicorn", amount: 0 }, { id:3, name: "chilicorn", amount: 0 }],
       date: today
     })
       .then(res => console.log(res))
@@ -98,20 +105,20 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  showResult = () => {
+  getResults = () => {
     API.getResults()
       .then(res => {
-        let resultArray = res.data
-        resultArray.forEach(function (element) {
-          console.log(element.date)
-        })
+        let today = res.data.length-1;
+        let currentResult = res.data[today].resultType
+        // console.log(currentResult);
+        this.setState({ currentDay: currentResult })
+        // console.log(this.state.currentDay)
       })
       .catch(err => console.log(err))
   }
 
 
   render() {
-    console.log("result: " + this.state.total + ", " + this.state.result)
     return (
       <Router>
         <Switch>
@@ -143,7 +150,7 @@ class App extends Component {
             <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result" render={(props) => (
-            <Result {...props} results={this.showResult} />
+            <Result {...props} getResults={this.getResults} result={this.state.currentDay} />
           )} />
           <Route component={NoMatch} />
 
