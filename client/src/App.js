@@ -13,9 +13,8 @@ import Question4 from "./components/Question4";
 import Question5 from "./components/Question5";
 import Result from "./pages/Result"
 import NoMatch from "./components/NoMatch";
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8081');
-// import { chiligirl } from './socketApi'
+// import openSocket from 'socket.io-client';
+// const socket = openSocket('http://localhost:8081');
 
 
 
@@ -33,13 +32,13 @@ class App extends Component {
     this.finalResult = this.finalResult.bind(this);
   };
 
-  chiligirl(){
-    socket.emit('chiligirl', 'chiligirl!');
-  };
+  // chiligirl(){
+  //   socket.emit('chiligirl', 'chiligirl!');
+  // };
 
-  unicorn(){
-    socket.emit('unicorn', 'unicorn!')
-  }
+  // unicorn(){
+  //   socket.emit('unicorn', 'unicorn!')
+  // }
 
   editState(e) {
     let stateTotal = this.state.total;
@@ -74,37 +73,42 @@ class App extends Component {
     setTimeout(function () {
       window.location.assign("/");
       let total = 0;
-    let result = "";
-    this.setState({ total: total, result: result})
+      let result = "";
+      this.setState({ total: total, result: result })
     }, 7000)
   }
 
-  newResults(result) {
+  newResults() {
     let today = moment().format("MMM Do YY");
     API.saveResult({
-      resultType: result,
-      amount: 0,
-      date: today 
+      resultType: [{ name: "chiligirl", amount: 0 }, { name: "unicorn", amount: 0 }, { name: "chilicorn", amount: 0 }],
+      date: today
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
-  updateResult = (resultType, today) => {
+  updateResult = (resultType) => {
+    let today = (moment().format("MMM Do YY"));
     API.updateResult({
-      resultType: resultType, 
+      resultType: resultType,
       date: today
     })
-    .then(res => console.log(res))
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
+  showResult = () => {
+    API.getResults()
+      .then(res => {
+        let resultArray = res.data
+        resultArray.forEach(function (element) {
+          console.log(element.date)
+        })
+      })
+      .catch(err => console.log(err))
+  }
 
-  // reset(){
-  //   let total = 0;
-  //   let result = "";
-  //   this.setState({ total: total, result: result})
-  // }
 
   render() {
     console.log("result: " + this.state.total + ", " + this.state.result)
@@ -130,16 +134,16 @@ class App extends Component {
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
           <Route exact path="/result/chiligirl" render={(props) => (
-            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult}/>
+            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result/unicorn" render={(props) => (
-            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult}/>
+            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
             <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result" render={(props) => (
-            <Result {...props} />
+            <Result {...props} results={this.showResult} />
           )} />
           <Route component={NoMatch} />
 

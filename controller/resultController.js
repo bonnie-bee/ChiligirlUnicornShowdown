@@ -5,9 +5,9 @@ module.exports = {
   findAll: function(req, res) {
     db.Result
       .find(req.query)
-      .sort({ date: -1 })
+      // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => console.log(err));
   },
   findById: function(req, res) {
     db.Result
@@ -23,8 +23,8 @@ module.exports = {
   },
   update: function(req, res) {
     db.Result
-      .findOneAndUpdate({ resultType: req.body.resultType, date: req.body.date }, {$inc: {amount: 1}}, req.body)
+      .findOneAndUpdate({ 'resultType.name': req.body.resultType, 'date': req.body.date }, {$inc: {'resultType.$.amount': 1}}, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log);
+      .catch(err => console.log(err));
   }
 };
