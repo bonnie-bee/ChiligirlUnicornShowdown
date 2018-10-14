@@ -43,6 +43,12 @@ class App extends Component {
     socket.emit('unicorn', 'unicorn!')
   }
 
+  chilicorn() {
+    socket.emit('chilicorn', 'update the display!');
+    socket.emit('unicorn', "you're so rare!");
+    socket.emit('chiligirl', 'chilicorn!');
+  }
+
   results() {
     let currentResults = this.state.currentDay;
     currentResults.forEach(function (a) {
@@ -91,11 +97,6 @@ class App extends Component {
 
   newResults() {
     let today = moment().format("MMM Do YY");
-    // API.getResults()
-    // .then(res=> {
-    //   console.log(res.data)
-    // })
-    // .catch(err => console.log(err))
     API.saveResult({
       resultType: [{ id: 1, name: "chiligirl", amount: 0 }, { id: 2, name: "unicorn", amount: 0 }, { id: 3, name: "chilicorn", amount: 0 }],
       date: today
@@ -110,7 +111,7 @@ class App extends Component {
       resultType: resultType,
       date: today
     })
-      .then(res => console.log(res))
+      .then(res => this.getResults())
       .catch(err => console.log(err));
   }
 
@@ -149,13 +150,13 @@ class App extends Component {
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
           <Route exact path="/result/chiligirl" render={(props) => (
-            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult} getResults={this.getResults}/>
+            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result/unicorn" render={(props) => (
-            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult} getResults={this.getResults}/>
+            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult}/>
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
-            <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} updateResult={this.updateResult} />
+            <Chilicorn {...props} timer={this.timer} chilicorn={this.chilicorn} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result" render={(props) => (
             <Result {...props} getResults={this.getResults} result={this.state.currentDay} />

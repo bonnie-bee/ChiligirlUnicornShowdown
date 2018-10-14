@@ -4,10 +4,9 @@ import "./Unicorn.css";
 class Unicorn extends Component {
 
     componentDidMount() {
-        this.props.timer();
+        // this.props.timer();
         this.props.unicorn();
         this.props.updateResult("unicorn");
-        this.props.getResults();
     }
 
 

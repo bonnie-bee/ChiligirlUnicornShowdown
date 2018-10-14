@@ -4,10 +4,9 @@ import "./Chiligirl.css";
 class Chiligirl extends Component {
 
     componentDidMount() {
-        this.props.timer(); 
+        // this.props.timer(); 
         this.props.chiligirl();
         this.props.updateResult("chiligirl");
-        this.props.getResults();
     }
     render() {
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Question1.css";
-import ranch from "./images/ranchHouse1.jpg";
+import ranch from "../../images/ranchHouse1.jpg";
 import forest from "./images/forest1b.jpg";
 import barn from "./images/barn1c.jpg";
 import wagon from "./images/chuck3.jpeg";

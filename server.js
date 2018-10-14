@@ -83,8 +83,8 @@ boards.on('ready', function () {
     client.on('unicorn', function (data) {
       console.log(data);
       board2.loop(500, function (endLoop) {
-        rgb.color(rainbow[index++]);
         stopSwitch++;
+        rgb.color(rainbow[index++]);
         if (index === rainbow.length) {
           index = 0;
         }
@@ -115,6 +115,12 @@ boards.on('ready', function () {
         lcd: lcd
       });
     });
+
+    client.on('chilicorn', function (data) {
+      console.log(data);
+      lcd.clear().cursor(0,2).print("THE ELUSIVE")
+      lcd.cursor(1,3).print("CHILICORN!")
+    })
   });
 });
 
