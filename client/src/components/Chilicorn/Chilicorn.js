@@ -5,9 +5,9 @@ class Chilicorn extends Component {
 
 
     render() {
-        // this.props.timer()
-        // this.props.chiligirl()
-        // this.props.unicorn()
+        this.props.timer()
+        this.props.chiligirl()
+        this.props.unicorn()
         this.props.updateResult("chilicorn")        
         return (
             <div id = "cornBGDiv">

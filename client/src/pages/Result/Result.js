@@ -9,6 +9,7 @@ class Result extends Component {
     }
 
     render() {
+        console.log(this.props.result);
 
         return (
             <div>

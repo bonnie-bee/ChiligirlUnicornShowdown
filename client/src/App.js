@@ -13,8 +13,8 @@ import Question4 from "./components/Question4";
 import Question5 from "./components/Question5";
 import Result from "./pages/Result"
 import NoMatch from "./components/NoMatch";
-// import openSocket from 'socket.io-client';
-// const socket = openSocket('http://localhost:8081');
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8081');
 
 
 
@@ -31,16 +31,25 @@ class App extends Component {
 
     this.editState = this.editState.bind(this);
     this.finalResult = this.finalResult.bind(this);
-    this.getResults = this.getResults.bind(this)
+    this.getResults = this.getResults.bind(this);
+    this.results = this.results.bind(this)
   };
 
-  // chiligirl(){
-  //   socket.emit('chiligirl', 'chiligirl!');
-  // };
+  chiligirl() {
+    socket.emit('chiligirl', 'chiligirl!');
+  };
 
-  // unicorn(){
-  //   socket.emit('unicorn', 'unicorn!')
-  // }
+  unicorn() {
+    socket.emit('unicorn', 'unicorn!')
+  }
+
+  results() {
+    let currentResults = this.state.currentDay;
+    currentResults.forEach(function (a) {
+      console.log(a)
+    })
+    socket.emit('results', currentResults)
+  }
 
   editState(e) {
     let stateTotal = this.state.total;
@@ -88,7 +97,7 @@ class App extends Component {
     // })
     // .catch(err => console.log(err))
     API.saveResult({
-      resultType: [{ id:1, name: "chiligirl", amount: 0 }, { id:2, name: "unicorn", amount: 0 }, { id:3, name: "chilicorn", amount: 0 }],
+      resultType: [{ id: 1, name: "chiligirl", amount: 0 }, { id: 2, name: "unicorn", amount: 0 }, { id: 3, name: "chilicorn", amount: 0 }],
       date: today
     })
       .then(res => console.log(res))
@@ -108,11 +117,10 @@ class App extends Component {
   getResults = () => {
     API.getResults()
       .then(res => {
-        let today = res.data.length-1;
+        let today = res.data.length - 1;
         let currentResult = res.data[today].resultType
-        // console.log(currentResult);
         this.setState({ currentDay: currentResult })
-        // console.log(this.state.currentDay)
+        socket.emit('results', currentResult)
       })
       .catch(err => console.log(err))
   }
@@ -141,10 +149,10 @@ class App extends Component {
             <Question5 {...props} finalValue={this.finalResult} />
           )} />
           <Route exact path="/result/chiligirl" render={(props) => (
-            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult} />
+            <Chiligirl {...props} timer={this.timer} chiligirl={this.chiligirl} updateResult={this.updateResult} getResults={this.getResults}/>
           )} />
           <Route exact path="/result/unicorn" render={(props) => (
-            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult} />
+            <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult} getResults={this.getResults}/>
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
             <Chilicorn {...props} timer={this.timer} chiligirl={this.chiligirl} unicorn={this.unicorn} updateResult={this.updateResult} />
