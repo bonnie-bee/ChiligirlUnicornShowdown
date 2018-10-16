@@ -156,7 +156,7 @@ class App extends Component {
             <Unicorn {...props} timer={this.timer} unicorn={this.unicorn} updateResult={this.updateResult}/>
           )} />
           <Route exact path="/result/chilicorn" render={(props) => (
-            <Chilicorn {...props} timer={this.timer} chilicorn={this.chilicorn} updateResult={this.updateResult} />
+            <Chilicorn {...props} timer={this.timer} chilicorn={this.chilicorn} getResults={this.getResults} updateResult={this.updateResult} />
           )} />
           <Route exact path="/result" render={(props) => (
             <Result {...props} getResults={this.getResults} result={this.state.currentDay} />

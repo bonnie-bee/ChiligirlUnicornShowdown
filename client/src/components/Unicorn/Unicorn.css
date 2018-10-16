@@ -38,7 +38,7 @@
     background-position: 0% 30%;
     background-repeat: no-repeat;
     animation-direction: alternate;
-	animation: animatedUnicorn 7s linear infinite;
+	animation: animatedUnicorn 8s linear infinite;
 }
 #uniBGDiv{
     background-color: skyblue;

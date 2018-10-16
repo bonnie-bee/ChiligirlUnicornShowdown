@@ -19,7 +19,7 @@ module.exports = {
     db.Result
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log(err));
+      .catch(err => console.log("There's already a document for today!"));
   },
   update: function(req, res) {
     db.Result
