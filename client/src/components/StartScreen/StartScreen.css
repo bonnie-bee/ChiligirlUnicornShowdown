@@ -61,7 +61,7 @@ body {
     font-size: 2.2em;
     top: 19%;
     left: 6.4%;
-    animation: startShake 30s infinite; 
+    animation: startShake 17s infinite; 
     animation-delay: 17s;
 }
 
@@ -76,8 +76,7 @@ body {
     font-size: 2.2em;
     top:59%;
     left: 15%;
-    animation: startShake 30s infinite; 
-    animation-delay: 34s;
+    animation: startShake 26s infinite; 
 }
 
 a:hover{
