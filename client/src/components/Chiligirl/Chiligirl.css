@@ -3,10 +3,14 @@
     color: white;
     text-shadow: 0 0 5px white, 0 0 15px white, 0 0 25px hotpink, 0 0 35px hotpink, 0 0 50px pink;
     font-family: 'League Script', cursive;
+    /* font-size: 23em; */
     font-size: 23em;
-    letter-spacing: 4;
-    left: 7%;
-    top: 7%;
+    /* letter-spacing: 4; */
+    letter-spacing: -6px;
+    /* left: 7%; */
+    left: 4%;
+    /* top: 7%; */
+    top: 11%;
 }
  
 #girlBGDiv{

@@ -20,8 +20,8 @@ class Chilicorn extends Component {
                 <div id="cornBGDiv">
                     <h6 id="elusive">The Elusive</h6>
                     <h1 id="cornHeader" className="resultHeader">CHILICORN</h1>
-                    <img id="hornLeft" src={hornLeft} />
-                    <img id="hornRight" src={hornRight} />
+                    <img id="hornLeft" src={hornLeft} alt="A brass horn"/>
+                    <img id="hornRight" src={hornRight} alt="A brass horn"/>
                 </div>
             </div>
         )

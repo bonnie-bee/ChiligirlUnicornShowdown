@@ -1,5 +1,6 @@
 const five = require('johnny-five');
-const boards = new five.Boards([{ port: "COM5", id: "A" }, { port: "COM6", id: "B" }]);
+// const boards = new five.Boards([{ port: "COM5", id: "A" }, { port: "COM6", id: "B" }]);
+const boards = new five.Boards([{ port: "COM3", id: "A" }, { port: "COM4", id: "B" }]);
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");

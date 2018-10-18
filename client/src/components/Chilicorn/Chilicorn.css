@@ -1,6 +1,7 @@
 @keyframes confetti {
-	0% { background-position: 200% 2000%, -200% 2000%; }
-	35% { background-position: 10% -200%, 90% -200%; }
+	/* 0% { background-position: 200% 2000%, -200% 2000%; } */
+	0% { background-position: 1000% 2000%, -1000% 2000%; }
+	35%,36% { background-position: 10% -200%, 90% -200%; }
 	100% { background-position: -30% 2000%, 130% 2000%; }
 }
 
@@ -36,9 +37,10 @@
     background-image:  url(../../images/confetti.png), url(../../images/confetti.png);
     background-position: 100% 2000%, 0% 2000%;
     background-repeat: no-repeat;
-    animation: confetti 4s linear ;
+    /* animation: confetti 4s ease-in ; */
+    animation: confetti 4.5s ease-in-out ;
     animation-fill-mode: both;
-    animation-delay: 1.4s;
+    animation-delay: 1s;
 
 }  
 
@@ -58,7 +60,8 @@
     text-shadow: 0 0 5px hotpink, 0 0 15px hotpink; 
     position: absolute;
     left: 30%;
-    top: 11%;
+    /* top: 11%; */
+    top: 16%;
     font-size: 8em;
     font-family: 'League Script', cursive;        
 
@@ -67,9 +70,12 @@
     color: rgb(252, 221, 240);
     text-shadow: 0 0 5px hotpink, 0 0 15px hotpink, 0 0 45px rgb(252, 221, 240), 0 0 85px rgb(252, 221, 240); 
     position: absolute;
-    top: 3%;
-    left: 3%;
+    /* top: 3%; */
+    top: 12%;
+    /* left: 3%; */
+    left: 2.5%;
     opacity: 0;
     animation: fadein 3s forwards;
     animation-delay: 2.5s;
+    font-size: 19em;
 }
