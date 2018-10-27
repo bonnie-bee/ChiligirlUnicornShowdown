@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Question2.css";
 
 const Question2 = (props) => {
-    // let thing1= props.data.hello;
 
     return(
     <div className="BGBox">

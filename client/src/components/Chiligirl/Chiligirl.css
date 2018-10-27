@@ -5,12 +5,12 @@
     font-family: 'League Script', cursive;
     /* font-size: 23em; */
     font-size: 23em;
-    /* letter-spacing: 4; */
-    letter-spacing: -6px;
-    /* left: 7%; */
-    left: 4%;
-    /* top: 7%; */
-    top: 11%;
+    letter-spacing: 4;
+    /* letter-spacing: -6px; */
+    left: 7%;
+    /* left: 4%; */
+    top: 7%;
+    /* top: 11%; */
 }
  
 #girlBGDiv{

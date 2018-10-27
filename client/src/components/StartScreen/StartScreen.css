@@ -34,6 +34,7 @@ body {
     color: black;
 } 
 
+/* animation to shake the words */
 @keyframes startShake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     .2% { transform: translate(-2px, -2px) rotate(-1deg); }
@@ -53,18 +54,18 @@ body {
 
 #areYou{
     position: absolute;
-    /* top: 9%; */
-    top: 12%;
+    top: 9%;
+    /* top: 12%; */
     left: 30%
 }
 #chiligirlStart{
     position: absolute;
-    /* font-size: 2.2em; */
-    font-size: 2em;
-    /* top: 19%; */
-    top: 23%;
-    /* left: 6.4%; */
-    left: 7.5%;
+    font-size: 2.2em;
+    /* font-size: 2em; */
+    top: 19%;
+    /* top: 23%; */
+    left: 6.4%;
+    /* left: 7.5%; */
     animation: startShake 17s infinite; 
     animation-delay: 17s;
 }
@@ -72,16 +73,16 @@ body {
 #orA{
     position: absolute;
     top:49%;
-    /* left: 42% */
-    left: 40%
+    left: 42%
+    /* left: 40% */
 }
 
 #unicornStart{
     position: absolute;
     font-size: 2.2em;
     top:59%;
-    /* left: 15%; */
-    left: 12%;
+    left: 15%;
+    /* left: 12%; */
     animation: startShake 26s infinite; 
 }
 
@@ -89,6 +90,7 @@ a:hover{
     text-decoration: none;
 }
 
+/* animation for the chiligirl */
 @keyframes chiliwave{
     0%, 40%{transform: translate(-63%, 0%) rotateZ(-40deg) }
     45%, 60%{transform: translate(0%, 0%) rotateZ(0deg) }
@@ -112,6 +114,8 @@ a:hover{
     line-height: 70px;
 
 }
+
+/* animation to show the speech bubbles */
 @keyframes speech{
     0%, 45%{opacity: 0}
     46%, 60%{opacity: 1}
@@ -150,6 +154,7 @@ a:hover{
 
   }
 
+  /* animation for the unicorn */
   @keyframes uniwave{
     0%, 40%{transform: translate(78%, 0%) rotateZ(0deg) }
     45%, 60%{transform: translate(0%, 0%) rotateZ(30deg)}
@@ -159,8 +164,8 @@ a:hover{
 #unicornWave{
     position: absolute;
     top: 19%;
-    /* left: 82%; */
-    left: 79%;
+    left: 82%;
+    /* left: 79%; */
     opacity: 0%;
     animation: uniwave 30s infinite;
     animation-delay: 31s;
@@ -170,10 +175,10 @@ a:hover{
 
 .speech2{
     position: relative;
-    /* left: 62%; */
-    left: 57%;
-    /* top: -37%; */
-    top: -26%;
+    left: 62%;
+    /* left: 57%; */
+    top: -37%;
+    /* top: -26%; */
     width: 320px;
     height: 260px;
     opacity: 0%;

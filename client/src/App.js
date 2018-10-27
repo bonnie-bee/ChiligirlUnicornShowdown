@@ -20,12 +20,14 @@ const socket = openSocket('http://localhost:8081');
 
 class App extends Component {
 
+  //setting up state and binding functions to it because extended component instead of arrow functions
   constructor(props) {
     super(props);
 
     this.state = {
       total: 0,
       result: "",
+      //currentDay wil be an array with each type and the amount of them 
       currentDay: []
     }
 
@@ -35,20 +37,25 @@ class App extends Component {
     this.results = this.results.bind(this)
   };
 
+  //emits chiligirl to server.js via socket.io with it's name as the data to be logged
   chiligirl() {
     socket.emit('chiligirl', 'chiligirl!');
   };
 
+  //emits unicorn to server.js via socket.io with it's name as the data to be logged
   unicorn() {
     socket.emit('unicorn', 'unicorn!')
   }
 
+  //emits chilicorn to server.js via socket.io with phrases as the data to be logged
   chilicorn() {
+    //emits each types because I want to show the lights associated with each
     socket.emit('chilicorn', 'update the display!');
     socket.emit('unicorn', "you're so rare!");
     socket.emit('chiligirl', 'chilicorn!');
   }
 
+  //emits results to server.js so I can display them on the lcd screen
   results() {
     let currentResults = this.state.currentDay;
     currentResults.forEach(function (a) {
@@ -57,6 +64,8 @@ class App extends Component {
     socket.emit('results', currentResults)
   }
 
+  //updates the state with the answer values of the answer the user picked
+  //takes the element the user clicked as an argument so can pass in its value attribute
   editState(e) {
     let stateTotal = this.state.total;
     let amounts = parseInt(e.target.getAttribute("value"), 10);
@@ -65,27 +74,36 @@ class App extends Component {
     return newTotal;
   }
 
+  //finding out what type the user is 
   finalResult(e) {
     let newTotal = this.editState(e);
     console.log("new total: " + newTotal)
-    let resultw = "";
+    let result = "";
+    //if the total score of all answers is less than 0, you're a chiligirl
     if (newTotal > 0) {
-      resultw = "Chiligirl";
-      this.setState({ total: newTotal, result: resultw });
+      result = "Chiligirl";
+      this.setState({ total: newTotal, result: result });
+      //redirect to the chiligirl result screen
       window.location.assign("/result/Chiligirl")
     }
+    //if the total score of all answers is more than 0, you're a unicorn
     if (newTotal < 0) {
-      resultw = "Unicorn";
-      this.setState({ total: newTotal, result: resultw });
+      result = "Unicorn";
+      this.setState({ total: newTotal, result: result });
+      //redirect to the unicorn result screen
       window.location.assign("/result/Unicorn")
     }
+    //if the total score of all answers is equal to 0, you're a chilicorn
     if (newTotal === 0) {
-      resultw = "Chilicorn";
-      this.setState({ total: newTotal, result: resultw });
+      result = "Chilicorn";
+      this.setState({ total: newTotal, result: result });
+      //redirect to the chilicorn result screen
       window.location.assign("/result/Chilicorn")
     }
   }
 
+  //timer function to rest the game after the user sees their result
+  //redirects to the start screen and resets state after 7 seconds
   timer() {
     setTimeout(function () {
       window.location.assign("/");
@@ -95,9 +113,11 @@ class App extends Component {
     }, 7000)
   }
 
+  //create a document in the database at the start of each day
   newResults() {
     let today = moment().format("MMM Do YY");
     API.saveResult({
+      //give each type an id for mapping later
       resultType: [{ id: 1, name: "chiligirl", amount: 0 }, { id: 2, name: "unicorn", amount: 0 }, { id: 3, name: "chilicorn", amount: 0 }],
       date: today
     })
@@ -105,6 +125,8 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  //take the passed in result type and look for it in the database
+  //update the amount of that type 
   updateResult = (resultType) => {
     let today = (moment().format("MMM Do YY"));
     API.updateResult({
@@ -115,6 +137,7 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  //show the results from today on the result screen and pass to the lcd screen
   getResults = () => {
     API.getResults()
       .then(res => {

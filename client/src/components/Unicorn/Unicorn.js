@@ -5,7 +5,6 @@ class Unicorn extends Component {
 
     componentDidMount() {
         this.props.timer();
-        this.props.unicorn();
         this.props.updateResult("unicorn");
     }
 

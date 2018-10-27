@@ -1,21 +1,21 @@
 
-
+/* animations for the clouds */
 @keyframes animatedCloud {
 	from { background-position: 100% 100%; }
 	to { background-position: 0% 100%; }
 }
     
+/* animations for the unicorn */
 @keyframes animatedUnicorn {
-    
     0% { background-position: -20% -30%; background-transform: translate(1px, 1px) rotate(20deg);  }
     10% {background-position: -5% -10%; background-transform: translate(-1px, -2px) rotate(-1deg);}
-    /* 20% {background-position: 15% 90%} */
-    20% {background-position: 15% 80%}
+    20% {background-position: 15% 90%}
+    /* 20% {background-position: 15% 80%} */
     30% {background-position: 30% -10% }
     40% {background-position: 45% -30%}
     50% {background-position: 60% -10% }
-    /* 60% {background-position: 75% 90%} */
-    60% {background-position: 75% 80%}
+    60% {background-position: 75% 90%}
+    /* 60% {background-position: 75% 80%} */
     70% {background-position: 90% -10%}
     80% {background-position: 100% -30%}
 	100% { background-position: 120% -10% }
@@ -27,7 +27,6 @@
     padding-top: 13%;
   
 }
-
 
 #uniHeader{
     color: white;
