@@ -2,6 +2,8 @@
 
 In the heart of Texas resides champion chili makers - The Chiligirl and The Unicorn. They're best friends who teamed up to fight the forces of bad chili and spread joy in the form of a steaming bowl of red. This quiz will reveal your inner chili self - *Are you a Chiligirl or a Unicorn?*
 
+* Note - The game is built to be run on a specific touchscreen that interacts with lights. It might look a little funky on most computers but this version is mainly to show the gist of the app.
+
 ### Technologies Used:
 
   * React
