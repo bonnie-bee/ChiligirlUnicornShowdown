@@ -1,29 +1,21 @@
-# Create React Express App
+## Chiligirl Unicorn Showdown
 
-## About This Boilerplate
+In the heart of Texas resides champion chili makers - The Chiligirl and The Unicorn. They're best friends who teamed up to fight the forces of bad chili and spread joy in the form of a steaming bowl of red. This quiz will reveal your inner chili self - *Are you a Chiligirl or a Unicorn?*
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+### Technologies Used:
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+  * React
+  * HTML/CSS
+  * JavaScript
+  * MongoDB
+  * Mongoose
+  * Arduino
+  * Johnny-Five
+  * Web Sockets
+  
+### Arduino Info
 
-## Starting the app locally
+The app runs on a touchscreen set inside a box with three led lights and an lcd screen. The lights fire when a user reaches a result screen and the lcd updates with the number of chiligirls and unicorns that have played the game that day. 
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
-```
-yarn install
-```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+![arduino/led fritzing diagram](https://github.com/bonnie-bee/ChiligirlUnicornShowdown/blob/master/diagrams/led.PNG?raw=true)
+![arduino/lcd fritzing diagram](https://github.com/bonnie-bee/ChiligirlUnicornShowdown/blob/master/diagrams/lcd.png?raw=true)
