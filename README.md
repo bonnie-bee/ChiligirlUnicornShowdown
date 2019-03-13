@@ -13,7 +13,7 @@ In the heart of Texas resides champion chili makers - The Chiligirl and The Unic
   * Johnny-Five
   * Web Sockets
   
-### Arduino Info
+### Arduino Info:
 
 The app runs on a touchscreen set inside a box with three led lights and an lcd screen. The lights fire when a user reaches a result screen and the lcd updates with the number of chiligirls and unicorns that have played the game that day. 
 
