@@ -19,19 +19,19 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
-    "event-stream": "^3.3.4",
-    "express": "^4.15.4",
+    "axios": "^0.18.1",
+    "body-parser": "^1.19.0",
+    "event-stream": "^3.3.5",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "johnny-five": "^1.0.0",
-    "moment": "^2.22.2",
-    "mongoose": "^5.3.2",
+    "johnny-five": "^1.1.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.14",
     "react-router-dom": "^4.3.1",
-    "socket.io": "^2.1.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
   }
 }
