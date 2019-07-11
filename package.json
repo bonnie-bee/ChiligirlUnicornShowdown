@@ -29,7 +29,7 @@
     "if-env": "^1.0.4",
     "johnny-five": "^1.1.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.5.14",
+    "mongoose": "^5.6.4",
     "react-router-dom": "^4.3.1",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0"
